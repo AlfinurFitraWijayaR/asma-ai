@@ -15,8 +15,6 @@ import { createClientForBrowser } from "@/lib/supabase/client";
 import { useRouter } from "next/navigation";
 
 export const LoginUser = ({ user }) => {
-  console.log(user);
-
   const router = useRouter();
   const [supabase] = useState(() => createClientForBrowser());
 

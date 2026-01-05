@@ -51,6 +51,7 @@ export async function POST(req) {
     const saveUsersLimit = await saveUsersLimitToDatabase({
       feature_name: "analyze",
     });
+
     if (!saveUsersLimit.success) {
       return NextResponse.json(
         {
@@ -76,6 +77,7 @@ export async function POST(req) {
         { status: 500 }
       );
     }
+
     return NextResponse.json(result);
   } catch (error) {
     if (

@@ -27,14 +27,21 @@ export function Footer() {
                 <ProtectedLink
                   href={`${process.env.NEXT_PUBLIC_SITE_URL}/content-digital`}
                 >
-                  Content Digital Generator
+                  AI Content Digital Generator
                 </ProtectedLink>
               </li>
               <li className="hover:text-violet-600 cursor-pointer">
                 <ProtectedLink
                   href={`${process.env.NEXT_PUBLIC_SITE_URL}/business-health`}
                 >
-                  Business Health Check
+                  AI Business Health Check
+                </ProtectedLink>
+              </li>
+              <li className="hover:text-violet-600 cursor-pointer">
+                <ProtectedLink
+                  href={`${process.env.NEXT_PUBLIC_SITE_URL}/smart-proposal`}
+                >
+                  AI Smart Proposal Generator
                 </ProtectedLink>
               </li>
             </ul>

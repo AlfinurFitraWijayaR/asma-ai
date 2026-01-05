@@ -5,10 +5,12 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import BusinessResult from "@/components/Fragments/Business/BusinessResult";
 import { Steps } from "@/components/Fragments/Business/Steps";
 import BusinessForm from "@/components/Fragments/Business/BusinessForm";
+import { Alert, AlertDescription } from "@/components/ui/alert";
 
 export default function BusinessHealth() {
   const [result, setResult] = useState(null);
   const [isCalculating, setIsCalculating] = useState(false);
+  const [error, setError] = useState(null);
   const [formData, setFormData] = useState({
     kategori: "kuliner",
     omzet: "",
@@ -22,6 +24,7 @@ export default function BusinessHealth() {
   const analyzeBusiness = async () => {
     setIsCalculating(true);
     setResult(null);
+    setError(null);
 
     try {
       const response = await fetch("/api/business-health", {
@@ -37,8 +40,8 @@ export default function BusinessHealth() {
 
       setResult(result.data);
     } catch (error) {
+      setError(error);
       console.error("Error:", error);
-      alert("Terjadi kesalahan saat menganalisis data. Silakan coba lagi.");
     } finally {
       setIsCalculating(false);
     }
@@ -82,6 +85,16 @@ export default function BusinessHealth() {
                   isCalculating={isCalculating}
                   onAnalyze={analyzeBusiness}
                 />
+
+                {error && (
+                  <Alert variant="destructive">
+                    <AlertDescription>
+                      {error.message?.includes("QUOTA_LIMIT")
+                        ? "LIMIT MODEL HABIS"
+                        : error.message}
+                    </AlertDescription>
+                  </Alert>
+                )}
               </CardContent>
             </Card>
           </div>
