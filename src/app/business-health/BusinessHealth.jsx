@@ -58,9 +58,10 @@ export default function BusinessHealth() {
         </div>
         <p className="text-gray-600 text-sm sm:text-base max-w-3xl mx-auto">
           Cek kondisi usaha Anda dengan ASMA AI yang mengadopsi prinsip
-          Manajemen Keuangan Dasar. Logika analisis kami dirancang khusus untuk
-          karakteristik UMKM Mikro Indonesia, memberikan insight instan demi
-          keputusan bisnis yang lebih cerdas
+          Manajemen Keuangan Dasar. Logika analisis kami disusun berdasarkan
+          prinsip Manajemen Keuangan Dasar dan disesuaikan dengan karakteristik
+          UMKM Mikro di Indonesia. Dapatkan analisis instan yang akurat tanpa
+          perlu ahli akuntansi.
         </p>
       </div>
 
