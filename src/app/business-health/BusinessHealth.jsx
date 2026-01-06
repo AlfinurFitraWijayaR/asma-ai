@@ -57,10 +57,10 @@ export default function BusinessHealth() {
           </h1>
         </div>
         <p className="text-gray-600 text-sm sm:text-base max-w-3xl mx-auto">
-          Dapatkan gambaran cepat tentang kesehatan bisnis Anda dengan analisis
-          berbasis AI. Masukkan data utama, dan sistem akan menghasilkan insight
-          serta rekomendasi yang relevan untuk membantu Anda mengambil keputusan
-          lebih tepat.
+          Cek kondisi usaha Anda dengan ASMA AI yang mengadopsi prinsip
+          Manajemen Keuangan Dasar. Logika analisis kami dirancang khusus untuk
+          karakteristik UMKM Mikro Indonesia, memberikan insight instan demi
+          keputusan bisnis yang lebih cerdas
         </p>
       </div>
 
