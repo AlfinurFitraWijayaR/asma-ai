@@ -18,9 +18,11 @@ export const Navbar = async () => {
         <Link href="/">
           <div className="flex items-center space-x-2">
             <div className="p-2 bg-purple-600 rounded-lg shadow-purple-200 shadow-md">
-              <Activity className="w-5 h-5 text-white" />
+              <Activity className="w-4 h-4 text-white" />
             </div>
-            <h1 className="text-lg font-bold text-slate-800">ASMA</h1>
+            <h1 className="font-semibold text-gray-900 leading-tight text-sm md:text-md">
+              ASMA AI
+            </h1>
           </div>
         </Link>
 

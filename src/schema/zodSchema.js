@@ -4,7 +4,7 @@ export const proposalSchema = z.object({
   namaUsaha: z.string().min(1, "Nama usaha wajib diisi"),
   namaPemilik: z.string().min(1, "Nama pemilik wajib diisi"),
   alamat: z.string().min(1, "Alamat wajib diisi"),
-  jenisUsaha: z.string().min(1, "Jenis usaha wajib diisi"),
+  kontak: z.string().min(1, "Kontak wajib diisi"),
   lamaUsaha: z.string().min(1, "Lama usaha wajib diisi"),
   omzet: z.union([z.string(), z.number()]).transform((val) => String(val)),
   kendala: z

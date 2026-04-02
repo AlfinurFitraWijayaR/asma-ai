@@ -22,6 +22,7 @@ export function ModalViewProposal({ content, onClose }) {
 
         <div className="flex-1 overflow-y-auto bg-slate-100 p-4 md:p-8">
           <div className="bg-white shadow-sm p-8 min-h-[297mm] mx-auto max-w-[210mm] text-slate-900">
+            {/* Render HTML Content Securely */}
             <div dangerouslySetInnerHTML={{ __html: content }} />
           </div>
         </div>

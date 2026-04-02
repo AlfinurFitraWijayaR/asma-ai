@@ -31,7 +31,7 @@ export default function SmartProposal() {
     namaUsaha: "",
     namaPemilik: "",
     alamat: "",
-    jenisUsaha: "Kuliner",
+    kontak: "",
     lamaUsaha: "",
     omzet: "",
     kendala: "",
@@ -61,15 +61,13 @@ export default function SmartProposal() {
   const validateStep = (currentStep) => {
     const newErrors = {};
     let isValid = true;
-
     if (currentStep === 1) {
       if (!formData.namaUsaha.trim())
         newErrors.namaUsaha = "Nama usaha wajib diisi";
       if (!formData.namaPemilik.trim())
         newErrors.namaPemilik = "Nama pemilik wajib diisi";
       if (!formData.alamat.trim()) newErrors.alamat = "Alamat wajib diisi";
-      if (!formData.jenisUsaha)
-        newErrors.jenisUsaha = "Jenis usaha wajib dipilih";
+      if (!formData.kontak.trim()) newErrors.kontak = "Kontak wajib diisi";
       if (!formData.lamaUsaha.trim())
         newErrors.lamaUsaha = "Lama usaha wajib diisi";
     } else if (currentStep === 2) {
@@ -125,6 +123,7 @@ export default function SmartProposal() {
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify(formData),
         });
+
         const data = await response.json();
         if (response.status === 429) {
           setLimitError(data.error);

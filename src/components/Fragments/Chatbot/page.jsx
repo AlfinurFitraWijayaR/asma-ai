@@ -80,7 +80,7 @@ export default function Chatbot() {
             >
               {!isChatOpen ? (
                 <Avatar className="h-full w-full">
-                  <AvatarImage src="sara.png" alt="@sara" />
+                  <AvatarImage src="ama.jpg" alt="@sara" />
                 </Avatar>
               ) : (
                 <ArrowDownCircleIcon className="size-10" />
@@ -99,14 +99,14 @@ export default function Chatbot() {
             transition={{ duration: 0.2 }}
             className="fixed bottom-25 right-4 z-20 w-[95%] md:w-[500px]"
           >
-            <Card className="bg-white/40 backdrop-blur-xl border border-white/60 rounded-3xl shadow-2xl shadow-violet-500/10 overflow-hidden">
+            <Card className="bg-black/10 backdrop-blur-xl border border-white/60 rounded-3xl shadow-2xl shadow-violet-500/10 overflow-hidden">
               <CardHeader className="flex items-center justify-between mb-6">
                 <div className="flex items-center gap-3">
                   <Avatar className="h-10 w-10">
-                    <AvatarImage src="sara.png" alt="sara" />
+                    <AvatarImage src="ama.jpg" alt="sara" />
                   </Avatar>
                   <div>
-                    <CardTitle className="text-lg">Ama</CardTitle>
+                    <CardTitle className="text-xl">ama</CardTitle>
                   </div>
                 </div>
                 <Button
@@ -149,7 +149,7 @@ export default function Chatbot() {
                     </div>
                   )}
                   {error && (
-                    <div className="text-red-600 text-center text-sm">
+                    <div className="text-red-500 text-center text-sm">
                       {error.message?.includes("429") ||
                       error.message?.includes("QUOTA_LIMIT")
                         ? "LIMIT MODEL HABIS"
@@ -169,7 +169,7 @@ export default function Chatbot() {
                     placeholder="Ketik pesan Anda..."
                     value={input}
                     onChange={handleInputChange}
-                    className="flex-1 border-gray-300 focus:ring-2 focus:ring-purple-600"
+                    className="flex-1 focus:ring-2 focus:ring-purple-600"
                   />
                   <Button
                     type="submit"

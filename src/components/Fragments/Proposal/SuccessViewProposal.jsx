@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import { Printer, Eye, FileText, CheckCircle2 } from "lucide-react";
+import { Printer, Eye, CheckCircle2 } from "lucide-react";
 import { motion } from "framer-motion";
 
 export function SuccessViewProposal({ onPreview, onDownload }) {
@@ -25,16 +25,7 @@ export function SuccessViewProposal({ onPreview, onDownload }) {
           </p>
         </div>
 
-        <div className="p-8 space-y-4">
-          <div className="bg-slate-50 border border-slate-100 rounded-lg p-4 flex items-start space-x-3">
-            <FileText className="w-8 h-8 text-slate-400 mt-1" />
-            <div>
-              <h4 className="font-semibold text-slate-800">
-                Proposal by ASMA AI.pdf
-              </h4>
-            </div>
-          </div>
-
+        <div className="px-8 space-y-4">
           <div className="grid grid-cols-1 gap-3 pt-4">
             <Button
               variant="outline"

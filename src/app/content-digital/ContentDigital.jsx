@@ -2,7 +2,6 @@
 
 import AnalyzeHistory from "@/components/Fragments/Analyze/AnalyzeHistory";
 import AnalyzeResult from "@/components/Fragments/Analyze/AnalyzeResult";
-import { Example } from "@/components/Fragments/Analyze/Example";
 import ImageUpload from "@/components/Fragments/Analyze/ImageUpload";
 import { Steps } from "@/components/Fragments/Analyze/Steps";
 import { Alert, AlertDescription } from "@/components/ui/alert";
@@ -66,7 +65,7 @@ export default function ContentDigital() {
         <Alert variant="destructive">
           <AlertDescription>
             {error.message?.includes("QUOTA_LIMIT")
-              ? "LIMIT MODEL HABIS"
+              ? "LIMIT QUOTA MODEL TELAH HABIS"
               : error.message}
           </AlertDescription>
         </Alert>
@@ -97,7 +96,6 @@ export default function ContentDigital() {
         </div>
       </div>
 
-      <Example />
       <Steps />
     </div>
   );

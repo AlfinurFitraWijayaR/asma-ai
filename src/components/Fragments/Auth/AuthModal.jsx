@@ -34,8 +34,8 @@ export default function AuthModal() {
       <DialogContent className="sm:max-w-md rounded-2xl p-6">
         <DialogHeader className="text-center">
           <DialogTitle className="text-2xl font-bold">Masuk</DialogTitle>
-          <DialogDescription className="text-gray-500 mb-3">
-            Login untuk mendapatkan akses fitur ASMA.
+          <DialogDescription className="text-zinc-500 mb-3">
+            Masuk untuk mendapatkan akses fitur ASMA AI.
           </DialogDescription>
         </DialogHeader>
         <LoginForm redirectPath={redirectPath} />

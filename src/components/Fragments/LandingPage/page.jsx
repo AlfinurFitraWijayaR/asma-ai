@@ -1,9 +1,11 @@
 import React from "react";
 import { motion } from "framer-motion";
-import Hero from "./Fragments/LandingPage/Hero";
-import ProblemSolution from "./Fragments/LandingPage/ProblemSolution";
-import CTA from "./Fragments/LandingPage/CTA";
-import FeatureShowcase from "./Fragments/LandingPage/FeatureShowCase";
+import Hero from "./Hero/page";
+import ProblemSolution from "./ProblemSolution/page";
+import Mitra from "./Mitra/page";
+import Benefit from "./Benefit/page";
+import CustomerReviews from "./CustomerReviews/page";
+import { FaqSection } from "./FAQ/page";
 
 const staggerContainer = {
   hidden: { opacity: 0 },
@@ -17,7 +19,7 @@ const staggerContainer = {
 
 export default function LandingPage() {
   return (
-    <div className="relative z-10 w-full mx-auto px-6 pt-35">
+    <div className="relative z-10 w-full mx-auto px-6 mt-12 md:mt-20">
       <section>
         <motion.div
           initial="hidden"
@@ -30,9 +32,11 @@ export default function LandingPage() {
         </motion.div>
       </section>
 
-      <FeatureShowcase />
+      <Mitra />
       <ProblemSolution />
-      <CTA />
+      <Benefit />
+      <CustomerReviews />
+      <FaqSection />
     </div>
   );
 }

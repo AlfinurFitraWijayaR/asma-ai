@@ -112,8 +112,4 @@ export const getAnalysisHistory = async (limit = 10) => {
       error: error.message,
     };
   }
-  // const res = await fetch(`/api/analysis?limit=${limit}`, {
-  //   cache: "no-store",
-  // });
-  // return res.json();
 };

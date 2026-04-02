@@ -1,12 +1,5 @@
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
 import { Textarea } from "@/components/ui/textarea";
 import { formatIDR } from "@/lib/utils";
 import { Store, Target, TrendingUp, Wallet } from "lucide-react";
@@ -18,7 +11,7 @@ export function StepOne({ data, onChange, onSelectChange, errors }) {
         <Store className="w-6 h-6 text-violet-500" />
         <h2 className="text-xl font-semibold text-slate-800">Profil Usaha</h2>
       </div>
-      <p className="text-slate-500 mb-6">
+      <p className="text-zinc-500 mb-6 text-sm">
         Ceritakan sedikit tentang identitas usaha Anda.
       </p>
 
@@ -28,7 +21,7 @@ export function StepOne({ data, onChange, onSelectChange, errors }) {
           <Input
             id="namaUsaha"
             name="namaUsaha"
-            placeholder="Contoh: Keripik Basreng Teuas"
+            placeholder="Keripik Basreng Teuas"
             value={data.namaUsaha}
             onChange={onChange}
             className={errors.namaUsaha ? "border-red-500" : ""}
@@ -44,7 +37,7 @@ export function StepOne({ data, onChange, onSelectChange, errors }) {
             <Input
               id="namaPemilik"
               name="namaPemilik"
-              placeholder="Contoh: Mang Toha"
+              placeholder="Mang Toha"
               value={data.namaPemilik}
               onChange={onChange}
               className={errors.namaPemilik ? "border-red-500" : ""}
@@ -59,7 +52,7 @@ export function StepOne({ data, onChange, onSelectChange, errors }) {
             <Input
               id="alamat"
               name="alamat"
-              placeholder="Contoh: Cigondewah, Bandung"
+              placeholder="Cigondewah, Bandung"
               value={data.alamat}
               onChange={onChange}
               className={errors.alamat ? "border-red-500" : ""}
@@ -72,31 +65,18 @@ export function StepOne({ data, onChange, onSelectChange, errors }) {
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <div className="grid gap-2 relative">
-            <Label htmlFor="jenisUsaha">Jenis Usaha</Label>
-            <Select
-              value={data.jenisUsaha}
-              onValueChange={(value) => onSelectChange(value)}
-            >
-              <SelectTrigger
-                className={`w-full h-12 ${
-                  errors.jenisUsaha ? "border-red-500" : ""
-                }`}
-              >
-                <SelectValue placeholder="Pilih Jenis Usaha" />
-              </SelectTrigger>
-              <SelectContent>
-                <SelectItem value="Kuliner">🍽️ Kuliner</SelectItem>
-                <SelectItem value="Fashion">👗 Fashion & Pakaian</SelectItem>
-                <SelectItem value="Jasa">🛠️ Jasa</SelectItem>
-                <SelectItem value="Agrobisnis">
-                  🌱 Agrobisnis & Pertanian
-                </SelectItem>
-                <SelectItem value="Kerajinan">🧶 Kerajinan Tangan</SelectItem>
-                <SelectItem value="Lainnya">📦 Lainnya</SelectItem>
-              </SelectContent>
-            </Select>
-            {errors.jenisUsaha && (
-              <p className="text-red-500 text-sm">{errors.jenisUsaha}</p>
+            <Label htmlFor="alamat">Kontak</Label>
+            <Input
+              type="number"
+              id="kontak"
+              name="kontak"
+              placeholder="08111111111"
+              value={data.kontak}
+              onChange={onChange}
+              className={errors.kontak ? "border-red-500" : ""}
+            />
+            {errors.kontak && (
+              <p className="text-red-500 text-sm">{errors.kontak}</p>
             )}
           </div>
 
@@ -105,7 +85,7 @@ export function StepOne({ data, onChange, onSelectChange, errors }) {
             <Input
               id="lamaUsaha"
               name="lamaUsaha"
-              placeholder="Contoh: 2 Tahun"
+              placeholder="2 Tahun"
               value={data.lamaUsaha}
               onChange={onChange}
               className={errors.lamaUsaha ? "border-red-500" : ""}
@@ -129,7 +109,7 @@ export function StepTwo({ data, onChange, errors }) {
           Kondisi Saat Ini
         </h2>
       </div>
-      <p className="text-slate-500 mb-6">
+      <p className="text-zinc-500 mb-6">
         Jelaskan kondisi keuangan dan masalah yang sedang dihadapi.
       </p>
 
@@ -140,7 +120,7 @@ export function StepTwo({ data, onChange, errors }) {
             id="omzet"
             name="omzet"
             type="number"
-            placeholder="Contoh: 5000000"
+            placeholder="5000000"
             value={data.omzet}
             onChange={onChange}
             className={errors.omzet ? "border-red-500" : ""}
@@ -160,7 +140,7 @@ export function StepTwo({ data, onChange, errors }) {
           <Textarea
             id="kendala"
             name="kendala"
-            placeholder="Ceritakan kendala Anda.&#10;Contoh: Alatnya masih manual jadi produksi lambat, sering nolak pesanan karena gak keburu."
+            placeholder="Ceritakan kendala Anda.&#10;Alatnya masih manual jadi produksi lambat, sering nolak pesanan karena gak keburu."
             className={`h-32 ${errors.kendala ? "border-red-500" : ""}`}
             value={data.kendala}
             onChange={onChange}
@@ -181,7 +161,7 @@ export function StepThree({ data, onChange, errors }) {
         <Wallet className="w-6 h-6 text-violet-500" />
         <h2 className="text-xl font-semibold text-slate-800">Kebutuhan Dana</h2>
       </div>
-      <p className="text-slate-500 mb-6">
+      <p className="text-zinc-500 mb-6">
         Berapa dana yang Anda butuhkan dan untuk apa saja?
       </p>
 
@@ -192,7 +172,7 @@ export function StepThree({ data, onChange, errors }) {
             id="dana"
             name="dana"
             type="number"
-            placeholder="Contoh: 15.000.000"
+            placeholder="15.000.000"
             value={data.dana}
             onChange={onChange}
             className={errors.dana ? "border-red-500" : ""}
@@ -210,7 +190,7 @@ export function StepThree({ data, onChange, errors }) {
           <Textarea
             id="penggunaan"
             name="penggunaan"
-            placeholder="Rincian kasar pembelian.&#10;Contoh: Beli mesin packaging otomatis (5 juta), Stok bahan baku (3 juta), Renovasi ruko (7 juta)."
+            placeholder="Rincian kasar pembelian.&#10;Beli mesin packaging otomatis (5 juta), Stok bahan baku (3 juta), Renovasi ruko (7 juta)."
             className={`h-32 ${errors.penggunaan ? "border-red-500" : ""}`}
             value={data.penggunaan}
             onChange={onChange}
@@ -231,7 +211,7 @@ export function StepFour({ data, onChange, errors }) {
         <Target className="w-6 h-6 text-violet-500" />
         <h2 className="text-xl font-semibold text-slate-800">Target Harapan</h2>
       </div>
-      <p className="text-slate-500 mb-6">
+      <p className="text-zinc-500 mb-6">
         Apa dampak positif jika Anda mendapatkan dana tersebut?
       </p>
 
@@ -241,7 +221,7 @@ export function StepFour({ data, onChange, errors }) {
           <Textarea
             id="target"
             name="target"
-            placeholder="Bayangkan masa depan usaha Anda.&#10;Contoh: Bisa produksi 2x lipat, nambah 1 karyawan dari tetangga, dan omzet menaik."
+            placeholder="Bayangkan masa depan usaha Anda.&#10;Bisa produksi 2x lipat, nambah 1 karyawan dari tetangga, dan omzet menaik."
             className={`h-40 ${errors.target ? "border-red-500" : ""}`}
             value={data.target}
             onChange={onChange}

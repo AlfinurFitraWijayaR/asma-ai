@@ -52,6 +52,7 @@ export async function POST(req) {
 
     const prompt = promptBusinessHealth(body);
     const result = await analyzeBusinessHealth(prompt);
+
     if (!result || !result.data) {
       return NextResponse.json(
         { error: "AI gagal menghasilkan data analisis bisnis yang valid" },

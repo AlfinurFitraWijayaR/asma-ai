@@ -45,6 +45,7 @@ export default function BusinessResult({ result }) {
               >
                 <div className="absolute -top-10 -right-10 w-40 h-40 bg-white opacity-40 rounded-full blur-3xl"></div>
 
+                {/* Bussines Health Score */}
                 <CardHeader>
                   <CardTitle className="text-center text-slate-700 flex flex-col items-center gap-2">
                     <span className="text-sm font-medium uppercase tracking-wider text-slate-500">
@@ -121,16 +122,15 @@ export default function BusinessResult({ result }) {
                     </div>
                   </div>
                 </CardContent>
-              </Card>
 
-              <Card className="shadow-md">
-                <CardHeader className="pb-1 border-b border-slate-100">
-                  <CardTitle className="text-lg flex items-center gap-2">
+                {/* Faktor Risiko */}
+                <CardHeader className="text-center text-slate-700 flex flex-col items-center gap-2">
+                  <CardTitle className="text-sm flex items-center font-medium uppercase tracking-wider text-slate-500 gap-2">
                     <PieChart className="w-5 h-5 text-red-500" />
                     Faktor Risiko
                   </CardTitle>
                 </CardHeader>
-                <CardContent className="space-y-4 pt-4">
+                <CardContent className="space-y-4">
                   {!result.risk_factors || result.risk_factors.length === 0 ? (
                     <div className="flex items-start gap-3 p-4 bg-green-50 rounded-xl border border-green-100">
                       <CheckCircle2 className="w-6 h-6 text-green-600 mt-0.5 shrink-0" />
@@ -161,16 +161,15 @@ export default function BusinessResult({ result }) {
                     ))
                   )}
                 </CardContent>
-              </Card>
 
-              <Card className="shadow-md">
-                <CardHeader className="pb-3 border-b border-slate-100">
-                  <CardTitle className="text-lg flex items-center gap-2">
+                {/* Rekomendasi Strategis */}
+                <CardHeader className="text-center text-slate-700 flex flex-col items-center gap-2 pt-2">
+                  <CardTitle className="text-sm flex items-center font-medium uppercase tracking-wider text-slate-500 gap-2">
                     <TrendingUp className="w-5 h-5 text-purple-600" />
                     Rekomendasi Strategis
                   </CardTitle>
                 </CardHeader>
-                <CardContent className="pt-4">
+                <CardContent className="">
                   <ul className="space-y-5">
                     {result.recommendations.map((rec, idx) => (
                       <li

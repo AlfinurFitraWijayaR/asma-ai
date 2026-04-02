@@ -21,7 +21,7 @@ export async function POST(req) {
       {
         error: `Kamu telah mencapai batas limit, silahkan coba lagi besok jam ${timeNow}`,
       },
-      { status: 429 }
+      { status: 429 },
     );
   }
 
@@ -35,7 +35,7 @@ export async function POST(req) {
           error: "Data tidak valid",
           details: validationResult.error.flatten().fieldErrors,
         },
-        { status: 400 }
+        { status: 400 },
       );
     }
 
@@ -44,7 +44,7 @@ export async function POST(req) {
     if (!result) {
       return NextResponse.json(
         { error: "AI gagal menghasilkan data analisis bisnis yang valid" },
-        { status: 500 }
+        { status: 500 },
       );
     }
 
@@ -58,23 +58,23 @@ export async function POST(req) {
             "Gagal menyimpan hasil limit smart proposal ke DB: " +
             saveUsersLimit.error,
         },
-        { status: 500 }
+        { status: 500 },
       );
     }
 
     return NextResponse.json({
       success: true,
       data: result,
-      fileName: `Proposal_${validationResult.data.namaUsaha.replace(
+      fileName: `Proposal ${validationResult.data.namaUsaha.replace(
         /\s+/g,
-        "_"
+        "_",
       )}by ASMA AI.pdf`,
     });
   } catch (error) {
     console.error("Error generating proposal:", error);
     return NextResponse.json(
       { success: false, error: "Error generating proposal: " + error.message },
-      { status: 500 }
+      { status: 500 },
     );
   }
 }

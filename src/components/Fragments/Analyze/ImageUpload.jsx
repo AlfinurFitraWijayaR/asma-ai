@@ -143,7 +143,7 @@ export default function ImageUpload({ onAnalyze, isAnalyzing }) {
               {isAnalyzing ? (
                 <span className="flex items-center gap-2">
                   <Activity className="w-5 h-5 animate-spin" /> ASMA sedang
-                  membuat konten....
+                  berpikir....
                 </span>
               ) : (
                 "Mulai"

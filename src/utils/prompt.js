@@ -303,100 +303,7 @@ export const promptSmartProposal = (body) => {
     namaUsaha,
     namaPemilik,
     alamat,
-    jenisUsaha,
-    lamaUsaha,
-    omzet,
-    kendala,
-    dana,
-    penggunaan,
-    target,
-  } = body;
-
-  return `Act as a Professional Business Consultant. 
-      Your task is to create a formal, persuasive, and neat Funding Proposal Framework for UMKM.
-      
-      Use the following data:
-      - Business Name: ${namaUsaha}
-      - Business Owner Name: ${namaPemilik}
-      - Business Address: ${alamat}
-      - Business Type: ${jenisUsaha}
-      - Year Application: 2026
-      - Business Operation Duration: ${lamaUsaha}
-      - Current Business Revenue: Rp ${omzet}
-      - Main Business Challenges: ${kendala}
-      - Amount of Funding Needed: Rp ${dana}
-      - Funding Usage Plan: ${penggunaan}
-      - Expected Impact: ${target}
-
-      Instructions for Output:
-      - Create a complete document in HTML format.
-      - Do not use Markdown, use pure HTML.
-      - Use semantic tags (h1, h2, p, ul, li, etc).
-      - Add simple inline CSS to ensure the document looks professional and official (Font Tiles New Roman, line-height 1.5, text-align justify).
-
-      Create a proposal structure with the following sections:
-      1. **Cover Page**, Contains:
-          - Title: “Proposal Pengajuan Dana Usaha UMKM ${namaUsaha}”
-          - Business Owner Name: ${namaPemilik}
-          - Business Address: ${alamat}
-          - Year Application: 2026
-
-      2. **RIngkasan Eksekutif**, Create a concise yet powerful summary about:
-          - Business Profile
-          - Current Business Performance
-          - Growth Potential
-          - Main Reason Why This Business deserves funding
-
-      3. **Profile Usaha**, Explain briefly:
-          - Business Type and Main Products
-          - Business Operation Duration
-          - Current Operational Condition
-          - Legal Status (if incomplete, explain as "in progress")
-
-      4. **Latar Belakang & Permasalahan Usaha**, Elaborate on the "${kendala}" point in business language that is:
-          - Empathetic
-          - Logical
-          - Demonstrating that the challenge can be resolved with funding
-
-      5. **Deskripsi Produk & Keunggulan**, Explain:
-          - Products/services offered
-          - Competitive advantages
-          - Value proposition for customers
-
-      6. **Analisis Pasar & Target Konsumen**, Outline:
-          - Main target market
-          - Market opportunities
-          - Reason for product growth potential
-
-      7. **Strategi Pemasaran & Penjualan**, Outline:
-          - Marketing channels (offline/online)
-          - Marketing strategies
-          - How to increase sales after funding
-
-      8. **Solusi & Rencana Penggunaan Dana**, Outline the use of Rp ${dana} funding clearly and systematically for:
-          - ${penggunaan}
-
-      9. **Proyeksi Keuangan & Dampak Usaha**, Explain realistically:
-          - Projected revenue increase after funding
-          - Impact on business:
-            • Business sustainability
-            • Job creation
-            • Social/economic impact (as per "${target}")
-
-      10. **Penutup**, Create a powerful closing statement that:
-          - Persuasive
-          - Demonstrates commitment to responsible management of funds
-          - Invites funding collaboration
-
-      Ensure the output is in formal, professional Indonesian, clear, and easy to understand by Bank or Dinas Koperasi.`;
-};
-
-export const promptSmartProposalIDN = (body) => {
-  const {
-    namaUsaha,
-    namaPemilik,
-    alamat,
-    jenisUsaha,
+    kontak,
     lamaUsaha,
     omzet,
     kendala,
@@ -412,7 +319,7 @@ export const promptSmartProposalIDN = (body) => {
       - Nama Usaha: ${namaUsaha}
       - Nama Pemilik Usaha: ${namaPemilik}
       - Alamat Usaha: ${alamat}
-      - Jenis Usaha: ${jenisUsaha}
+      - Kontak: ${kontak}
       - Tahun Pengajuan: 2026
       - Lama Berjalan: ${lamaUsaha}
       - Omzet Saat Ini: Rp ${omzet}
@@ -421,65 +328,56 @@ export const promptSmartProposalIDN = (body) => {
       - Rencana Penggunaan Dana: ${penggunaan}
       - Target/Dampak yang Diharapkan: ${target}
 
-      Instruksi Output:
-      - Buatkan dokumen lengkap dalam format HTML.
-      - Jangan gunakan Markdown, gunakan murni HTML.
-      - Gunakan tag semantik (h1, h2, p, ul, li, etc).
-      - Tambahkan styling inline CSS sederhana untuk memastikan tampilan yang rapi agar terlihat seperti dokumen surat resmi (Font Tiles New Roman, line-height 1.5, text-align justify).
+      INSTRUKSI SANGAT PENTING:
+          1. JANGAN PERNAH menambahkan tag <!DOCTYPE html>, <html>, <head>, <style>, atau <body>.
+          2. JANGAN menambahkan kotak, tabel, atau border apa pun pada container utama.
+          3. Ubah format jawabanmu menjadi paragraf-paragraf deskriptif (<p>). Kurangi penggunaan list (<ul>/<li>) kecuali sangat dibutuhkan. Proposal harus terlihat seperti dokumen surat atau buku, bukan catatan poin-poin.
+          4. Kamu WAJIB menyalin struktur HTML di bawah ini persis sama, dan hanya mengganti teks di dalam tanda kurung siku [...] dengan narasi profesional buatanmu.
+          5. Gunakan diksi finansial dan manajemen yang mutakhir (contoh: value proposition, operational excellence, bottleneck analysis, dan multiplier effect), namun tetap mudah dipahami oleh pembaca awam. Jangan gunakan jargon teknis yang berlebihan.
 
-      Buatkan struktur proposal dengan bagian-bagian berikut:
-      1. **Halaman Sampul (Cover)**, Berisi:
-          - Judul: “Proposal Pengajuan Dana Usaha UMKM ${namaUsaha}”
-          - Nama Pemilik Usaha: ${namaPemilik}
-          - Alamat Usaha: ${alamat}
-          - Tahun Pengajuan: 2026
+      FORMAT YANG WAJIB KAMU GUNAKAN:
+          <div style="font-family: 'Times New Roman', Times, serif; color: #000; line-height: 1.6; text-align: justify; font-size: 12pt;">
+            <div style="text-align: center; margin-bottom: 50px; padding-bottom: 30px; margin-top: 50px; page-break-after: always;">
+              <h1 style="font-size: 20pt; margin-bottom: 10px; font-weight: bold;">Proposal Pengajuan Dana Usaha<br>UMKM ${namaUsaha}</h1>
+              <p style="margin-top: 40px; font-size: 12pt;">Diajukan Oleh:<br>${namaPemilik} - ${kontak}</b></p>
+              <p style="margin-top: 30px; font-size: 12pt;">Alamat Usaha:<br>${alamat}</p>
+              <p style="margin-top: 30px; font-size: 12pt;">Tahun Pengajuan: 2026</p>
+            </div>
 
-      2. **Ringkasan Eksekutif**, Buat rangkuman singkat namun kuat mengenai:
-          - Profil usaha
-          - Kinerja usaha saat ini
-          - Potensi pertumbuhan
-          - Alasan utama usaha ini layak mendapatkan pendanaan
+            <h2 style="font-size: 14pt; font-weight: bold; margin-top: 30px; text-transform: capitalize;">Ringkasan Eksekutif</h2>
+            <p>[Tuliskan narasi yang merangkum proposisi nilai bisnis secara komprehensif. Hubungkan antara stabilitas omzet Rp ${omzet} dengan potensi 'Scalability' di tahun 2026. Tekankan bahwa dana ini adalah instrumen strategis untuk melakukan lompatan kuantum, bukan sekadar bantuan biaya bertahan hidup.]</p>
 
-      3. **Profil Usaha**, Jelaskan secara ringkas:
-          - Jenis usaha dan produk utama
-          - Lama usaha berjalan
-          - Kondisi operasional saat ini
-          - Legalitas usaha (jika belum lengkap, jelaskan sebagai “dalam proses”)
+            <h2 style="font-size: 14pt; font-weight: bold; margin-top: 30px; text-transform: capitalize;">Profil Usaha</h2>
+            <p>[Gunakan kerangka 'Resource-Based View' (RBV). Jelaskan bagaimana ${namaUsaha} telah membangun aset berwujud dan tidak berwujud selama ${lamaUsaha}. Narasikan rekam jejak operasional di ${alamat} sebagai bukti 'Market Presence' yang kuat dan kesiapan entitas dalam mengelola skala bisnis yang lebih besar.]</p>
 
-      4. **Latar Belakang & Permasalahan Usaha**, Elaborasikan poin "${kendala}" menjadi bahasa bisnis yang:
-          - Empatik
-          - Logis
-          - Menunjukkan bahwa kendala tersebut dapat diselesaikan dengan pendanaan
+            <h2 style="font-size: 14pt; font-weight: bold; margin-top: 30px; text-transform: capitalize;">Latar Belakang & Permasalahan Usaha</h2>
+            <p>[Narasikan bahwa ${kendala} bukan sekadar kesulitan teknis, melainkan hambatan yang menyebabkan hilangnya potensi pendapatan. Jelaskan urgensi pendanaan ini secara logis untuk menutup celah antara kapasitas saat ini dengan permintaan pasar yang tersedia.]</p>
 
-      5. **Deskripsi Produk & Keunggulan**, Jelaskan:
-          - Produk/jasa yang ditawarkan
-          - Keunggulan dibanding kompetitor
-          - Nilai tambah bagi konsumen
+            <h2 style="font-size: 14pt; font-weight: bold; margin-top: 30px; text-transform: capitalize;">Deskripsi Produk & Keunggulan</h2>
+            <p>[Jelaskan narasi tentang produk/jasa yang ditawarkan, keunggulannya dibanding kompetitor, dan nilai tambah bagi konsumen. Tekankan pada aspek keunikan dan standar kualitas yang membuat produk tetap relevan terhadap tren perilaku konsumen di tahun 2026.]</p>
 
-      6. **Analisis Pasar & Target Konsumen**, Uraikan:
-          - Target pasar utama
-          - Peluang pasar
-          - Alasan produk memiliki potensi berkembang
+            <h2 style="font-size: 14pt; font-weight: bold; margin-top: 30px; text-transform: capitalize;">Analisis Pasar & Target Konsumen</h2>
+            <p>[Narasikan analisis pasar menggunakan data tren terkini. Jelaskan bahwa target konsumenmu memiliki Purchasing Power yang selaras dengan nilai produk. Tekankan pada Unmet Needs di pasar yang hanya bisa dipenuhi jika kapasitas usaha ${namaUsaha} ditingkatkan melalui pendanaan ini.]</p>
 
-      7. **Strategi Pemasaran & Penjualan**, Jelaskan rencana:
-          - Saluran pemasaran (offline/online)
-          - Strategi promosi
-          - Cara meningkatkan penjualan setelah pendanaan
+            <h2 style="font-size: 14pt; font-weight: bold; margin-top: 30px; text-transform: capitalize;">Strategi Pemasaran & Penjualan</h2>
+            <p>[Narasikan bagaimana rencana ekspansi pemasaran pasca-pendanaan akan menurunkan 'Customer Acquisition Cost' (CAC) dan meningkatkan loyalitas pelanggan secara digital maupun konvensional untuk memastikan arus kas yang berkelanjutan.]</p>
 
-      8. **Solusi & Rencana Penggunaan Dana**, Rincikan penggunaan dana Rp ${dana} secara jelas dan terstruktur untuk:
-          - ${penggunaan}
+            <h2 style="font-size: 14pt; font-weight: bold; margin-top: 30px; text-transform: capitalize;">Solusi & Rencana Penggunaan Dana</h2>
+            <p>[Jelaskan narasi bahwa dana akan dialokasikan sesuai rencana. Jelaskan secara mengalir bagaimana investasi ini akan mengoptimalkan rantai pasok atau efisiensi produksi, sehingga setiap rupiah yang keluar memiliki dampak langsung pada produktivitas.]</p>
 
-      9. **Proyeksi Keuangan & Dampak Usaha**, Jelaskan secara realistis:
-          - Perkiraan peningkatan omzet setelah pendanaan
-          - Dampak usaha terhadap:
-            • Keberlanjutan bisnis
-            • Penyerapan tenaga kerja
-            • Dampak sosial/ekonomi (sesuai "${target}")
+            <h2 style="font-size: 14pt; font-weight: bold; margin-top: 30px; text-transform: capitalize;">Proyeksi Keuangan & Dampak Usaha</h2>
+            <p>[Narasikan proyeksi kenaikan omzet dari Rp ${omzet} ke target yang lebih tinggi secara terukur. Sebutkan juga dampak turunan (multiplier effect) seperti penyerapan tenaga kerja lokal dan kontribusi terhadap ekosistem UMKM yang resilien.]</p>
 
-      10. **Penutup**, Buat kalimat penutup yang:
-          - Meyakinkan
-          - Menunjukkan komitmen pengelolaan dana secara bertanggung jawab
-          - Mengundang kerja sama pendanaan
+            <h2 style="font-size: 14pt; font-weight: bold; margin-top: 30px; text-transform: capitalize;">Penutup</h2>
+            <p>[Tuliskan paragraf penutup yang menunjukkan sikap akuntabel, profesionalisme tinggi, dan optimisme. Tegaskan kesiapan namaPemilik untuk berdiskusi lebih lanjut mengenai detail implementasi proyek demi kemajuan bersama antara pelaku usaha dan penyedia dana.]</p>
 
-      Pastikan hasil output dalam Bahasa Indonesia yang baku, sopan, namun tetap mudah dipahami oleh pihak Bank atau Dinas Koperasi.`;
+            <div style="margin-top: 50px; text-align: right;">
+              <p style="margin-bottom: 80px;">Hormat kami,</p>
+              <p><b>${namaPemilik}</b><br>Pemilik Usaha ${namaUsaha}</p>
+            </div>
+
+          </div>
+
+      PENTING: Berikan OUTPUT HANYA KODE HTML MENTAH. JANGAN GUNAKAN MARKDOWN CODE BLOCKS (\`\`\`html atau \`\`\`). Jangan beri penjelasan apapun di luar tag HTML
+      Pastikan hasil output dalam Bahasa Indonesia yang sangat formal, baku, sopan, namun tetap mudah dipahami oleh pihak Bank atau Investor.`;
 };

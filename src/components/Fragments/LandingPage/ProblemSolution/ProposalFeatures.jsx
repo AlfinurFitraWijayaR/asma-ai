@@ -1,5 +1,3 @@
-import { Button } from "@/components/ui/button";
-import ProtectedLink from "@/components/ui/protected-link";
 import { AnimatePresence, motion } from "framer-motion";
 import {
   FileText,
@@ -47,7 +45,7 @@ export const ProposalFeature = () => {
 
   return (
     <>
-      <div className="relative h-[460px] w-full flex items-center justify-center order-1 lg:order-2 perspective-1000">
+      <div className="relative h-[460px] w-100 flex items-center justify-center order-1 lg:order-2 perspective-1000">
         {/* CARD A: Form */}
         <motion.div
           className="absolute z-20 w-[340px] bg-white rounded-xl shadow-2xl border border-slate-200 overflow-hidden"
@@ -139,15 +137,15 @@ export const ProposalFeature = () => {
           initial={{ x: 100, y: 100, opacity: 0 }}
           animate={{
             x: animationStep >= 1 ? 120 : 100, // Move towards button relative to center
-            y: animationStep >= 1 ? 180 : 100, // Approximate button location
+            y: animationStep >= 1 ? 190 : 125, // Approximate button location
             opacity: animationStep >= 3 ? 0 : 1, // Hide when form hides
             scale: animationStep === 2 ? 0.8 : 1, // Click scale
           }}
           transition={{
             type: "spring",
-            stiffness: 100,
+            stiffness: 150,
             damping: 20,
-            opacity: { duration: 0.2 },
+            opacity: { duration: 0.1 },
           }}
         >
           <MousePointer2
@@ -179,7 +177,7 @@ export const ProposalFeature = () => {
 
         {/* --- CARD B: PDF --- */}
         <motion.div
-          className="absolute z-30 w-[300px] h-[420px] bg-white rounded-sm shadow-2xl border border-slate-100 overflow-hidden flex flex-col items-center"
+          className="absolute z-30 w-[300px] h-[450px] bg-white rounded-sm shadow-2xl border border-slate-100 overflow-hidden flex flex-col items-center"
           initial={{ opacity: 0, y: 50, scale: 0.9 }}
           animate={{
             opacity: animationStep >= 3 ? 1 : 0,
@@ -197,10 +195,7 @@ export const ProposalFeature = () => {
           <div className="w-full p-4 border-b border-slate-100 flex items-center justify-between bg-slate-50/50">
             <div className="flex flex-col">
               <span className="text-[8px] font-bold text-slate-700 tracking-wider">
-                KEMENTERIAN UMKM INDONESIA
-              </span>
-              <span className="text-[6px] text-slate-400">
-                Jalan Jenderal Sudirman No. 1, Jakarta
+                Proposal Keripik Basreng by ASMA AI.pdf
               </span>
             </div>
             <div className="w-8 h-8 rounded bg-slate-200 flex items-center justify-center">
@@ -257,12 +252,6 @@ export const ProposalFeature = () => {
           </div>
         </motion.div>
       </div>
-      <ProtectedLink href="/smart-proposal">
-        <Button className="mt-6.5 w-2/3 mx-auto cursor-pointer bg-slate-900 h-10 rounded-md transition-colors flex items-center justify-center group shadow-md">
-          Coba Sekarang
-          <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
-        </Button>
-      </ProtectedLink>
     </>
   );
 };

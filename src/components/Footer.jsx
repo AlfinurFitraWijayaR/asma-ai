@@ -60,7 +60,7 @@ export function Footer() {
 
         <div className="border-t border-slate-200 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-xs text-slate-400">
-            ©2025 ASMA. All rights reserved.
+            ©2026 ASMA AI. All rights reserved.
           </p>
           <div className="text-xs text-slate-400 flex gap-6">
             <span>Created with ❤️ by Kelompok 1C</span>

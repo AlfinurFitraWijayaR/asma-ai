@@ -12,6 +12,8 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
+import Image from "next/image";
+import { Typewriter } from "../Animation/Typewriter";
 
 export default function AnalysisHistory() {
   const [history, setHistory] = useState([]);
@@ -80,7 +82,7 @@ export default function AnalysisHistory() {
                   <DialogTitle>
                     {title(
                       formatDesc(item.file_name),
-                      resAnalyze(item).data.deskripsi
+                      resAnalyze(item).data.deskripsi,
                     )}
                   </DialogTitle>
                 </DialogHeader>
@@ -88,17 +90,21 @@ export default function AnalysisHistory() {
               <DialogContent className="max-h-[80vh] overflow-y-auto">
                 <DialogHeader>
                   <DialogDescription>
-                    History{" "}
-                    <span className="font-medium">
-                      {formatDesc(item.file_name)}
-                    </span>
-                    , {item.created_at.split("T")[0]}
+                    Riwayat gambar <span>{formatDesc(item.file_name)}</span>,{" "}
+                    {item.created_at.split("T")[0]}
                   </DialogDescription>
                 </DialogHeader>
                 {resAnalyze(item).data.error ? (
                   <div>{resAnalyze(item).data.error}</div>
                 ) : (
                   <>
+                    <Image
+                      src={item?.image_url}
+                      width={100}
+                      height={100}
+                      alt="Analysis Result"
+                      className="m-auto"
+                    />
                     <div className="text-lg font-semibold">
                       Rekomendasi Deskripsi e-Commerce
                       <p className="text-sm  font-normal text-gray-700 leading-relaxed">

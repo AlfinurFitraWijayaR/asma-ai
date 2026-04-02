@@ -22,14 +22,17 @@ export default function AnalysisResult({ result }) {
   return (
     <Card className="p-4 md:p-6 w-full max-w-full border-t-4 border-t-purple-600">
       <div className="space-y-4 w-full">
-        {/* BAGIAN 1: INTRO */}
+        {/* INTRO */}
         <div className="min-h-[24px]">
           <p className="text-sm text-gray-700 leading-relaxed pb-5 break-words">
-            <Typewriter text={result.mulai} onComplete={() => setStep(1)} />
+            <Typewriter
+              text={result.mulai ?? result.error_message}
+              onComplete={() => setStep(1)}
+            />
           </p>
         </div>
 
-        {/* BAGIAN 2: DESKRIPSI */}
+        {/* DESKRIPSI */}
         {step >= 1 && (
           <div className="fade-in w-full">
             <div className="text-lg font-semibold animate-pulse-once">
@@ -45,7 +48,7 @@ export default function AnalysisResult({ result }) {
           </div>
         )}
 
-        {/* BAGIAN 3: CAPTION */}
+        {/* CAPTION */}
         {step >= 2 && (
           <div className="w-full">
             <div className="text-lg font-semibold">
@@ -57,7 +60,7 @@ export default function AnalysisResult({ result }) {
           </div>
         )}
 
-        {/* BAGIAN 4: IDE KONTEN */}
+        {/* IDE KONTEN */}
         {step >= 3 && (
           <div className="w-full">
             <div className="text-lg font-semibold">
