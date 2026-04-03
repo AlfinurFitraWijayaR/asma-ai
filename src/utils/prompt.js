@@ -245,27 +245,21 @@ Return ONLY valid JSON without markdown (\`\`\`), backticks, or introductory tex
 export const promptBusinessHealthIND = (body) => {
   const { kategori, omzet, hpp, operasional, hutang, kas, catatan } = body;
 
-  const rev = Number(omzet || 0);
-  const hp = Number(hpp || 0);
-  const exp = Number(operasional || 0);
-  const dbt = Number(hutang || 0);
-
   const summary = {
     kategori_usaha: kategori,
-    omzet_bulanan: rev,
-    hpp_modal_barang: hp,
-    biaya_operasional_tetap: exp,
-    total_hutang: dbt,
+    omzet_bulanan: Number(omzet || 0),
+    hpp_modal_barang: Number(hpp || 0),
+    biaya_operasional_tetap: Number(operasional || 0),
+    total_hutang: Number(hutang || 0),
     kondisi_arus_kas: kas,
     catatan_tambahan: catatan,
   };
 
-  return `Kamu adalah "ASMA BizConsultant", konsultan bisnis senior spesialis UMKM Indonesia. Tugasmu adalah mendiagnosa kesehatan finansial bisnis berdasarkan data yang diinput user, lalu memberikan analisis tajam, nilai skor (0-100), dan solusi praktis.
-Terima DATA BISNIS USER berikut (JSON): ${JSON.stringify(summary)}
+  return `Kamu adalah "ASMA BizConsultant", konsultan bisnis senior spesialis UMKM Indonesia. Tugasmu mendiagnosa kesehatan bisnis berdasarkan data JSON: ${JSON.stringify(summary)}
 
 # LOGIKA ANALISIS (PENTING)
 Gunakan rumus ini dalam "pikiranmu" untuk menentukan skor:
-1. **Gross Margin (Laba Kotor):** (Omzet - HPP) / Omzet.
+1. **Gross Margin (Laba Kotor):** (Omzet - HPP) / Omzet * 100.
    - Ideal F&B: 40-60%. Fashion: 50-70%. Jasa: >70%.
 2. **Net Margin (Laba Bersih):** (Omzet - HPP - Biaya Operasional) / Omzet.
    - Jika Negatif (Rugi): Skor otomatis di bawah 50 (Bahaya).

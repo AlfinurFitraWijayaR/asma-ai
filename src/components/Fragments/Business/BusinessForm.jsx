@@ -29,9 +29,7 @@ export default function BusinessForm({
   return (
     <div className="space-y-6">
       <div className="space-y-2">
-        <Label>
-          Kategori Usaha<span className="text-red-500">*</span>
-        </Label>
+        <Label>Kategori</Label>
         <Select
           value={formData.kategori}
           onValueChange={(value) =>
@@ -55,99 +53,97 @@ export default function BusinessForm({
         </Select>
       </div>
 
-      <div className="space-y-2">
-        <Label htmlFor="omzet">
-          Omzet Bulanan<span className="text-red-500">*</span>
-        </Label>
-        <div className="relative group">
-          <Wallet className="absolute left-3 top-4 h-4 w-4 text-slate-400 group-focus-within:text-purple-600 transition-colors" />
-          <Input
-            id="omzet"
-            name="omzet"
-            type="number"
-            placeholder="0"
-            className="pl-9 h-12 text-lg"
-            value={formData.omzet}
-            onChange={handleInputChange}
-          />
-        </div>
-        {formData.omzet && (
-          <p className="text-xs text-purple-600 font-medium text-right">
-            {formatIDR(formData.omzet)}
-          </p>
-        )}
-      </div>
-
-      <div className="space-y-2">
-        <Label htmlFor="hpp">
-          HPP / Modal Belanja Bahan Baku<span className="text-red-500">*</span>
-        </Label>
-        <div className="relative group">
-          <Wallet className="absolute left-3 top-4 h-4 w-4 text-slate-400 group-focus-within:text-purple-600 transition-colors" />
-          <Input
-            id="hpp"
-            name="hpp"
-            type="number"
-            placeholder="0"
-            className="pl-9 h-12 text-lg"
-            value={formData.hpp}
-            onChange={handleInputChange}
-          />
-        </div>
-        {formData.hpp && (
-          <p className="text-xs text-purple-600 font-medium text-right">
-            {formatIDR(formData.hpp)}
-          </p>
-        )}
-      </div>
-
-      <div className="space-y-2">
-        <Label htmlFor="operasional">
-          Biaya Operasional Tetap<span className="text-red-500">*</span>
-        </Label>
-        <div className="relative group">
-          <TrendingUp className="absolute left-3 top-4 h-4 w-4 text-slate-400 group-focus-within:text-purple-600 transition-colors" />
-          <Input
-            id="operasional"
-            name="operasional"
-            type="number"
-            placeholder="0"
-            className="pl-9 h-12 text-lg"
-            value={formData.operasional}
-            onChange={handleInputChange}
-          />
-        </div>
-        <div className="flex justify-between items-center">
-          <p className="text-xs text-slate-400">
-            Termasuk gaji, listrik, sewa tempat, dll.
-          </p>
-          {formData.operasional && (
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 pt-2">
+        <div className="space-y-2">
+          <Label htmlFor="omzet">Pendapatan Bulanan</Label>
+          <div className="relative group">
+            <Wallet className="absolute left-3 top-3 h-4 w-4 text-zinc-400 group-focus-within:text-purple-600 transition-colors" />
+            <Input
+              id="omzet"
+              name="omzet"
+              type="number"
+              placeholder="0"
+              className="pl-9 h-10 text-lg"
+              value={formData.omzet}
+              onChange={handleInputChange}
+            />
+          </div>
+          {formData.omzet && (
             <p className="text-xs text-purple-600 font-medium text-right">
-              {formatIDR(formData.operasional)}
+              {formatIDR(formData.omzet)}
+            </p>
+          )}
+        </div>
+
+        <div className="space-y-2">
+          <Label htmlFor="hpp">Harga Pokok Penjualan (HPP)</Label>
+          <div className="relative group">
+            <Wallet className="absolute left-3 top-3 h-4 w-4 text-zinc-400 group-focus-within:text-purple-600 transition-colors" />
+            <Input
+              id="hpp"
+              name="hpp"
+              type="number"
+              placeholder="0"
+              className="pl-9 h-10 text-lg"
+              value={formData.hpp}
+              onChange={handleInputChange}
+            />
+          </div>
+          {formData.hpp && (
+            <p className="text-xs text-purple-600 font-medium text-right">
+              {formatIDR(formData.hpp)}
             </p>
           )}
         </div>
       </div>
 
-      <div className="space-y-2">
-        <Label htmlFor="hutang">Total Hutang Usaha (opsional)</Label>
-        <div className="relative group">
-          <CreditCard className="absolute left-3 top-4 h-4 w-4 text-slate-400 group-focus-within:text-purple-600 transition-colors" />
-          <Input
-            id="hutang"
-            name="hutang"
-            type="number"
-            placeholder="0"
-            className="pl-9 h-12 text-lg"
-            value={formData.hutang}
-            onChange={handleInputChange}
-          />
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 pt-2">
+        <div className="space-y-2">
+          <Label htmlFor="operasional">Biaya Operasional Tetap</Label>
+          <div className="relative group">
+            <TrendingUp className="absolute left-3 top-3 h-4 w-4 text-zinc-400 group-focus-within:text-purple-600 transition-colors" />
+            <Input
+              id="operasional"
+              name="operasional"
+              type="number"
+              placeholder="0"
+              className="pl-9 h-10"
+              value={formData.operasional}
+              onChange={handleInputChange}
+            />
+          </div>
+          <div className="flex justify-between items-center">
+            <p className="text-xs text-zinc-400">
+              Termasuk gaji, listrik, sewa tempat, dll.
+            </p>
+            {formData.operasional && (
+              <p className="text-xs text-purple-600 font-medium text-right">
+                {formatIDR(formData.operasional)}
+              </p>
+            )}
+          </div>
         </div>
-        {formData.hutang && (
-          <p className="text-xs text-purple-600 font-medium text-right">
-            {formatIDR(formData.hutang)}
-          </p>
-        )}
+
+        <div className="space-y-2">
+          <Label htmlFor="hutang">Total Hutang Usaha (opsional)</Label>
+          <div className="relative group">
+            <CreditCard className="absolute left-3 top-3 h-4 w-4 text-zinc-400 group-focus-within:text-purple-600 transition-colors" />
+            <Input
+              id="hutang"
+              name="hutang"
+              type="number"
+              placeholder="0"
+              className="pl-9 h-10 text-lg"
+              value={formData.hutang}
+              onChange={handleInputChange}
+            />
+          </div>
+          {formData.hutang && (
+            <p className="text-xs text-purple-600 font-medium text-right">
+              {formatIDR(formData.hutang)}
+            </p>
+          )}
+        </div>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6 pt-2">

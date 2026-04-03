@@ -6,6 +6,7 @@ import BusinessResult from "@/components/Fragments/Business/BusinessResult";
 import { Steps } from "@/components/Fragments/Business/Steps";
 import BusinessForm from "@/components/Fragments/Business/BusinessForm";
 import { Alert, AlertDescription } from "@/components/ui/alert";
+import { MethodologySection } from "./MethodologySection";
 
 export default function BusinessHealth() {
   const [result, setResult] = useState(null);
@@ -60,8 +61,7 @@ export default function BusinessHealth() {
           Cek kondisi usaha Anda dengan ASMA AI yang mengadopsi prinsip
           Manajemen Keuangan Dasar. Logika analisis kami disusun berdasarkan
           prinsip Manajemen Keuangan Dasar dan disesuaikan dengan karakteristik
-          UMKM Mikro di Indonesia. Dapatkan analisis instan yang akurat tanpa
-          perlu ahli akuntansi.
+          UMKM Mikro di Indonesia.
         </p>
       </div>
 
@@ -71,11 +71,11 @@ export default function BusinessHealth() {
           <div className="lg:col-span-7 space-y-6">
             <Card className="border-t-4 border-t-purple-600 shadow-md">
               <CardHeader className="border-b border-slate-100 bg-slate-50/50">
-                <CardTitle className="flex items-center gap-2 text-lg font-bold text-slate-900">
+                <CardTitle className="flex items-center gap-2 text-lg font-semibold text-slate-900">
                   <Calculator className="w-5 h-5 text-purple-600" />
                   Input Data Keuangan
                 </CardTitle>
-                <p className="text-sm text-slate-500">
+                <p className="text-sm text-zinc-500">
                   Masukkan rata-rata angka keuangan bisnis Anda bulan ini.
                 </p>
               </CardHeader>
@@ -104,6 +104,7 @@ export default function BusinessHealth() {
         </div>
       </div>
 
+      <MethodologySection />
       <Steps />
     </div>
   );

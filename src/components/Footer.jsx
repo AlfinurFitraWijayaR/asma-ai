@@ -12,9 +12,9 @@ export function Footer() {
               <div className="p-2 bg-purple-600 rounded-lg shadow-purple-200 shadow-md">
                 <Activity className="w-5 h-5 text-white" />
               </div>
-              <span className="text-lg font-bold text-slate-800">ASMA</span>
+              <span className="font-semibold text-gray-900">ASMA</span>
             </div>
-            <p className="text-slate-500 text-sm mb-6 max-w-xs">
+            <p className="text-zinc-500 text-sm mb-6 max-w-xs">
               Platform asisten marketing AI yang dirancang untuk membantu UMKM
               Go Digital.
             </p>
@@ -22,7 +22,7 @@ export function Footer() {
 
           <div>
             <h4 className="font-bold text-slate-800 mb-4">Tools</h4>
-            <ul className="space-y-2 text-sm text-slate-500">
+            <ul className="space-y-2 text-sm text-zinc-500">
               <li className="hover:text-violet-600 cursor-pointer">
                 <ProtectedLink
                   href={`${process.env.NEXT_PUBLIC_SITE_URL}/content-digital`}
@@ -49,7 +49,7 @@ export function Footer() {
 
           <div>
             <h4 className="font-bold text-slate-800 mb-4">Legal</h4>
-            <ul className="space-y-2 text-sm text-slate-500">
+            <ul className="space-y-2 text-sm text-zinc-500">
               <li className="hover:text-violet-600 cursor-pointer">Privasi</li>
               <li className="hover:text-violet-600 cursor-pointer">
                 Syarat & Ketentuan
