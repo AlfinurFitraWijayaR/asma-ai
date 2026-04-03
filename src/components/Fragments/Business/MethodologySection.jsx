@@ -9,7 +9,7 @@ export const MethodologySection = () => {
           <ul className="flex justify-between gap-10 text-xs text-indigo-600 space-y-1">
             <li>
               <a
-                href="https://www.oecd.org/en/publications/oecd-msme-and-entrepreneurship-outlook-2024_03c62657-en.html"
+                href="https://www.oecd.org/content/dam/oecd/id/publications/reports/2024/11/oecd-economic-surveys-indonesia-2024_e3ab8960/9d9fdbd2-id.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="hover:underline flex items-center gap-1"
@@ -19,7 +19,7 @@ export const MethodologySection = () => {
             </li>
             <li>
               <a
-                href="https://www.bi.go.id/id/umkm/penelitian/Default.aspx"
+                href="https://www.bi.go.id/id/umkm/penelitian/Documents/Profil%20Bisnis%20UMKM.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="hover:underline flex items-center gap-1"
@@ -29,7 +29,7 @@ export const MethodologySection = () => {
             </li>
             <li>
               <a
-                href="https://ojk.go.id/id/regulasi/Pages/POJK-Nomor-11-Tahun-2023.aspx"
+                href="https://www.ojk.go.id/id/regulasi/Documents/Pages/Batas-Maksimum-Pemberian-Kredit-BPR-dan-Batas-Maksimum-Penyaluran-Dana-BPRS/ABSTRAK%20SEOJK%2011%20SEOJK.03%202023%20-%20Batas%20Maksimum%20Pemberian%20Kredit%20BPR%20dan%20Batas%20Maksimum%20Penyaluran%20Dana%20BPRS.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="hover:underline flex items-center gap-1"

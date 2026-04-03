@@ -62,7 +62,7 @@ export default function BusinessForm({
               id="omzet"
               name="omzet"
               type="number"
-              placeholder="0"
+              placeholder="Rp. 0"
               className="pl-9 h-10 text-lg"
               value={formData.omzet}
               onChange={handleInputChange}
@@ -83,7 +83,7 @@ export default function BusinessForm({
               id="hpp"
               name="hpp"
               type="number"
-              placeholder="0"
+              placeholder="Rp. 0"
               className="pl-9 h-10 text-lg"
               value={formData.hpp}
               onChange={handleInputChange}
@@ -106,7 +106,7 @@ export default function BusinessForm({
               id="operasional"
               name="operasional"
               type="number"
-              placeholder="0"
+              placeholder="Rp. 0"
               className="pl-9 h-10"
               value={formData.operasional}
               onChange={handleInputChange}
@@ -114,7 +114,7 @@ export default function BusinessForm({
           </div>
           <div className="flex justify-between items-center">
             <p className="text-xs text-zinc-400">
-              Termasuk gaji, listrik, sewa tempat, dll.
+              gaji, listrik, sewa tempat, dll.
             </p>
             {formData.operasional && (
               <p className="text-xs text-purple-600 font-medium text-right">
@@ -132,7 +132,7 @@ export default function BusinessForm({
               id="hutang"
               name="hutang"
               type="number"
-              placeholder="0"
+              placeholder="Rp. 0"
               className="pl-9 h-10 text-lg"
               value={formData.hutang}
               onChange={handleInputChange}
@@ -162,8 +162,8 @@ export default function BusinessForm({
               <SelectGroup>
                 <SelectLabel>Kondisi</SelectLabel>
                 <SelectItem value="lancar">✅ Lancar</SelectItem>
-                <SelectItem value="macet">⚠️ Macet</SelectItem>
-                <SelectItem value="kosong">❌ Sering Kosong</SelectItem>
+                <SelectItem value="tersendat">⚠️ Tersendat</SelectItem>
+                <SelectItem value="macet">❌ Macet</SelectItem>
               </SelectGroup>
             </SelectContent>
           </Select>
@@ -185,7 +185,9 @@ export default function BusinessForm({
                 <SelectLabel>Kondisi</SelectLabel>
                 <SelectItem value="rapi">📚 Rapi & Rutin</SelectItem>
                 <SelectItem value="campur">🔄 Campur Uang Pribadi</SelectItem>
-                <SelectItem value="tidak_ada">🚫 Tidak Ada</SelectItem>
+                <SelectItem value="tidak_ada_pencatatan_keuangan">
+                  🚫 Tidak Ada Pencatatan
+                </SelectItem>
               </SelectGroup>
             </SelectContent>
           </Select>

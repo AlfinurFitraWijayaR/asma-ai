@@ -6,7 +6,7 @@ import BusinessResult from "@/components/Fragments/Business/BusinessResult";
 import { Steps } from "@/components/Fragments/Business/Steps";
 import BusinessForm from "@/components/Fragments/Business/BusinessForm";
 import { Alert, AlertDescription } from "@/components/ui/alert";
-import { MethodologySection } from "./MethodologySection";
+import { MethodologySection } from "../../components/Fragments/Business/MethodologySection";
 
 export default function BusinessHealth() {
   const [result, setResult] = useState(null);

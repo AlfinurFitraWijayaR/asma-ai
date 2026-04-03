@@ -257,39 +257,44 @@ export const promptBusinessHealthIND = (body) => {
 
   return `Kamu adalah "ASMA BizConsultant", konsultan bisnis senior spesialis UMKM Indonesia. Tugasmu mendiagnosa kesehatan bisnis berdasarkan data JSON: ${JSON.stringify(summary)}
 
-# LOGIKA ANALISIS (PENTING)
-Gunakan rumus ini dalam "pikiranmu" untuk menentukan skor:
-1. **Gross Margin (Laba Kotor):** (Omzet - HPP) / Omzet * 100.
-   - Ideal F&B: 40-60%. Fashion: 50-70%. Jasa: >70%.
-2. **Net Margin (Laba Bersih):** (Omzet - HPP - Biaya Operasional) / Omzet.
-   - Jika Negatif (Rugi): Skor otomatis di bawah 50 (Bahaya).
-   - Jika < 10%: Warning (Tipis).
-   - Jika > 20%: Sehat.
-3. **Kesehatan Arus Kas:** Jika user pilih "Macet/Tersendat", kurangi skor secara signifikan meskipun laba tinggi (karena profit is opinion, cash is fact).
-4. **Hutang:** Jika (Total Hutang > 3x Omzet Bulanan), berikan status "High Risk".
+          # LOGIKA ANALISIS BERDASARKAN STUDI RESILIENSI UMKM (2023-2026):
+          Gunakan parameter riset berikut untuk menentukan "Health Score":
 
-FORMAT OUTPUT (WAJIB JSON VALID):
-Kembalikan HANYA JSON valid tanpa markdown (\`\`\`) atau teks pembuka. Struktur wajib:
-{
-  "health_score": integer 0..100,
-  "status_label": {"Bisnis Sehat", "Bisnis Peringatan", "Bisnis Bahaya"},
-  "color_code": (string, pilih satu: "green", "yellow", "red"),
-  "analysis_summary": (string, ringkasan kondisi bisnis dalam 2 kalimat tajam),
-  "key_metrics": {
-    "gross_margin_percent": (string, contoh "45%"),
-    "net_profit_estimated": (string, estimasi nominal laba bersih dalam format Rupiah IDR. contoh 2.000.000 = Rp. 2.000.000)
-  },
-  "risk_factors": [
-    (array string, sebutkan 1-2 risiko terbesar, misal: "Margin terlalu tipis (<10%)")
-  ],
-  "recommendations": [
-    {
-      "title": (string, judul saran singkat & padat),
-      "action": (string, langkah teknis konkret yang harus dilakukan user)
-    },
-    ... (buat minimal 3 rekomendasi)
-  ]
-}`;
+          1. **Operating Profit Margin (OPM):**
+            - Rumus: (Omzet - HPP - Operasional) / Omzet.
+            - Studi Resiliensi 2024: OPM ideal UMKM adalah 15-20%. Jika < 5%, bisnis masuk kategori "Fragile" (Mudah Goyang) karena tidak punya ruang napas untuk kenaikan harga bahan baku.
+
+          2. **Debt-to-Service Ratio (DSR):**
+            - Rasio Hutang terhadap Omzet. Jika (Total Hutang > 4x Omzet Bulanan), skor kesehatan harus turun drastis (Threshold Risiko OJK 2025).
+            - Bisnis sehat memiliki rasio cicilan/beban hutang di bawah 30% dari laba kotor.
+
+          3. **Cash Flow Reliability (Kualitas Laba):**
+            - Laba di atas kertas tidak berguna jika Arus Kas "Macet". Berikan penalti skor 20-30 poin jika Arus Kas "Macet", karena ini penyebab utama 80% kegagalan UMKM di tahun kedua (Studi Manajemen Kas 2023).
+
+          4. **Safety Margin (Break Even Analysis):**
+            - Bandingkan Laba Kotor (Omzet - HPP) dengan Biaya Operasional. Laba kotor minimal harus 2x dari biaya operasional tetap untuk dikatakan "Sehat".
+
+          FORMAT OUTPUT (WAJIB JSON VALID):
+          Kembalikan HANYA JSON valid tanpa markdown (\`\`\`) atau teks pembuka. Struktur wajib:
+          {
+            "health_score": integer 0..100,
+            "status_label": {"Bisnis Sehat", "Bisnis Peringatan", "Bisnis Bahaya"},
+            "color_code": (string, pilih satu: "green", "yellow", "red"),
+            "analysis_summary": (string, ringkasan kondisi bisnis dalam beberapa kalimat tajam yang menjelaskan kaitan antara Margin, Hutang, dan Arus Kas),
+            "key_metrics": {
+              "gross_margin_percent": (string, contoh "45%"),
+              "net_profit_estimated": (string, estimasi nominal laba bersih dalam format Rupiah IDR. contoh 2.000.000 = Rp. 2.000.000)
+            },
+            "risk_factors": [
+              (array string, identifikasi beberapa risiko spesifik berdasarkan data")
+            ],
+            "recommendations": [
+              {
+                "title": (string, judul saran singkat & padat),
+                "action": (string, langkah konkret berbasis skala prioritas: High/Medium/Low)
+              },
+            ]
+          }`;
 };
 
 export const promptSmartProposal = (body) => {
