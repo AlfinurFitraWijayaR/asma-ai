@@ -1,11 +1,11 @@
 export default function Mitra() {
   const partners = [
-    "Kopi Gunung Ciremai",
-    "Bakso Ikan Koyan JosJos",
+    "Dapur Tukang",
+    "Sagaya Thrift",
+    "Esteler FOMO",
     "Sorabi Panyaweyan",
-    "Warung Babeh Jatilima Panyaweyan",
-    "Konveksi Kaos XO Sport",
-    "Apotek Berkah Barokah Jaya",
+    "Zegen Shoes",
+    "Ruang Ngopi",
   ];
 
   return (

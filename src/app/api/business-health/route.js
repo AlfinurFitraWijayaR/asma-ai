@@ -1,6 +1,6 @@
 // app/api/business-health/route.js
 import { analyzeBusinessHealth } from "@/services/modelService";
-import { promptBusinessHealth } from "@/utils/prompt";
+import { promptBusinessHealthIND } from "@/utils/prompt";
 import { saveUsersLimitToDatabase } from "@/services/authService";
 import { checkDailyLimit } from "@/services/modelService";
 import { timeNow } from "@/utils/generate";
@@ -22,7 +22,7 @@ export async function POST(req) {
       {
         error: `Kamu telah mencapai batas limit, silahkan coba lagi besok jam ${timeNow}`,
       },
-      { status: 429 }
+      { status: 429 },
     );
   }
 
@@ -45,18 +45,18 @@ export async function POST(req) {
       if (!(k in body)) {
         return NextResponse.json(
           { error: `Missing required field: ${k}` },
-          { status: 400 }
+          { status: 400 },
         );
       }
     }
 
-    const prompt = promptBusinessHealth(body);
+    const prompt = promptBusinessHealthIND(body);
     const result = await analyzeBusinessHealth(prompt);
 
     if (!result || !result.data) {
       return NextResponse.json(
         { error: "AI gagal menghasilkan data analisis bisnis yang valid" },
-        { status: 500 }
+        { status: 500 },
       );
     }
 
@@ -70,7 +70,7 @@ export async function POST(req) {
             "Gagal menyimpan hasil limit business health ke DB: " +
             saveUsersLimit.error,
         },
-        { status: 500 }
+        { status: 500 },
       );
     }
 
